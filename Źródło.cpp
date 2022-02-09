@@ -593,7 +593,7 @@ void bitwaMorska(int tab[15][15], char plansz[15][15], int gracz)
 		else
 		{
 			cout << "-------------------------------------------------- ";
-			cout << endl << "Pudlo ";
+			cout << endl << "Pudlo";
 			if (podpowiedzi == 1 && (tablica[x - 1][y] == 8 || tablica[x - 2][y - 1] == 8 || tablica[x][y - 1] == 8 || tablica[x - 1][y - 2] == 8) )   cout << ", ale blisko ";
 			cout << endl << "-------------------------------------------------- " << endl;
 			if (dzwieki == 1)   PlaySound(TEXT("przelatywanie.wav"), NULL, SND_SYNC);
@@ -660,7 +660,7 @@ void graDwochGraczy()
 		licznik1 = 0;
 		liczbaRuchow1 = 0;
 		system("CLS");
-		cout << "Niech pierwszy u" << ¿ << "ytkownik przygotuje si" << ê << " do zgadywania. " << endl << endl;
+		cout << "Niech pierwszy u" << ¿ << "ytkownik przygotuje si" << ê << " do strzelania. " << endl << endl;
 		system("pause");
 		system("CLS");
 		bitwaMorska(tablica1, planszaUzytkowanika, 1);
@@ -678,7 +678,7 @@ void graDwochGraczy()
 		licznik2 = 0;
 		liczbaRuchow1 = 0;
 		system("CLS");
-		cout << "Niech drugi u" << ¿ << "ytkownik przygotuje si" << ê << " do zgadywania. " << endl << endl;
+		cout << "Niech drugi u" << ¿ << "ytkownik przygotuje si" << ê << " do strzelania. " << endl << endl;
 		system("pause");
 		system("CLS");
 		bitwaMorska(tablica, plansza, 2);
