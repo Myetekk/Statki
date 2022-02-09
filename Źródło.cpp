@@ -1013,11 +1013,5 @@ void Menu()
 int main()
 {
 	Menu();
-	
-	
 	system("pause");
-
-
-	cout << "ELO";
-	Sleep(100);
 }
