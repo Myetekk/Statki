@@ -14,13 +14,14 @@ char ³ = 0x88, Ÿ = 0xAB, ó = 0xA2, œ = 0x98, æ = 0x86, ¿ = 0xBE, ê = 0xA9, ¹ = 0
 int wielkoscPlanszy = 10;
 int maxDlugoscStatku = 4;
 
-int licznik1 = 0;
-int licznik2 = 0;
+int licznik1{};
+int licznik2{};
 
 int podpowiedzi = 0;
 
 int dzwieki = 1;
 
+int liczbaRuchow1{};
 
 //  generuje statek o zadanej d³ugoœci
 void generujStatek(int dlugosc)
@@ -276,13 +277,15 @@ void instrukcja(int opcja)
 		cout << "Ustaw swoje statki. " << endl;
 		cout << "Schemat wprowadzania wsp" << ó << ³ << "rz" << ê << "dnych:  wiersz  ->  ENTER  ->  kolumna  ->  ENTER " << endl;
 		cout << "Oznaczenia:  " << o << " -pole nieznane;  " << hasz << " -trafiony;  " << kwadracik << " -trafiony zatopiony;  " << X << " -pud" << ³ << "o" << endl << endl << endl;
+		
 		cout << endl << endl;
 	}
 	else if (opcja == 2)
 	{
 		cout << "Znajd" << Ÿ << " statki przeciwnika. " << endl;
 		cout << "Schemat wprowadzania wsp" << ó << ³ << "rz" << ê << "dnych:  wiersz  ->  ENTER  ->  kolumna  ->  ENTER " << endl;
-		cout << "Oznaczenia:  " << o << " -pole nieznane;  " << hasz << " -trafiony;  " << kwadracik << " -trafiony zatopiony;  " << X << " -pud" << ³ << "o" << endl << endl;
+		cout << "Oznaczenia:  " << o << " -pole nieznane;  " << hasz << " -trafiony;  " << kwadracik << " -trafiony zatopiony;  " << X << " -pud" << ³ << "o" << endl;
+		cout << "Liczba ruch" << ó << "w: " << liczbaRuchow1 << endl << endl;
 	}
 }
 
@@ -591,12 +594,14 @@ void bitwaMorska(int tab[15][15], char plansz[15][15], int gracz)
 		{
 			cout << "-------------------------------------------------- ";
 			cout << endl << "Pudlo ";
-			if (podpowiedzi == 1 && (tablica[x - 1][y] != 8 || tablica[x - 2][y - 1] != 8 || tablica[x][y - 1] != 8 || tablica[x - 1][y - 2] != 8))   cout << ", ale blisko ";
+			if (podpowiedzi == 1 && (tablica[x - 1][y] == 8 || tablica[x - 2][y - 1] == 8 || tablica[x][y - 1] == 8 || tablica[x - 1][y - 2] == 8) )   cout << ", ale blisko ";
 			cout << endl << "-------------------------------------------------- " << endl;
 			if (dzwieki == 1)   PlaySound(TEXT("przelatywanie.wav"), NULL, SND_SYNC);
 			plansz[x - 1][y - 1] = 0x9E;
 			tab[x - 1][y - 1] = 3;
 		}
+
+		liczbaRuchow1++;
 
 		koniec = 1;
 		for (int i = 0; i <= wielkoscPlanszy - 1; i++)
@@ -653,6 +658,7 @@ void graDwochGraczy()
 		}
 		//  zgadywanie pierwszego gracza
 		licznik1 = 0;
+		liczbaRuchow1 = 0;
 		system("CLS");
 		cout << "Niech pierwszy u" << ¿ << "ytkownik przygotuje si" << ê << " do zgadywania. " << endl << endl;
 		system("pause");
@@ -670,6 +676,7 @@ void graDwochGraczy()
 		}
 		//  zgadywanie drugiego gracza
 		licznik2 = 0;
+		liczbaRuchow1 = 0;
 		system("CLS");
 		cout << "Niech drugi u" << ¿ << "ytkownik przygotuje si" << ê << " do zgadywania. " << endl << endl;
 		system("pause");
